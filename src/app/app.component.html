@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3><strong>Зарегистрируйтесь</strong> и начните продавать услуги через интернет сегодня</h3>
+      <form #form="ngForm" class="user-from row">
+
+        <div class="col-sm-6 form-group">
+          <label class="control-label">имя</label>
+          <input class="form-control" type="text" name="name"
+                 [(ngModel)]="profile.name"
+                 #name="ngModel">
+        </div>
+
+        <div class="col-sm-6 form-group">
+          <label class="control-label">фамилия</label>
+          <input class="form-control" type="text" name="lastName"
+                 [(ngModel)]="profile.lastName"
+                 #lastName="ngModel">
+        </div>
+
+        <div class="col-sm-12 form-group">
+          <label class="control-label">профессия</label>
+          <app-autocomplete name="job"
+                            [items]="jobs"
+                            [(ngModel)]="profile.job"
+                            #job="ngModel">
+          </app-autocomplete>
+        </div>
+
+        <div class="col-sm-12 form-group">
+          <label class="control-label">телефон</label>
+          <app-phone-input name="phone"
+                           [(ngModel)]="profile.phone"
+                           #phone="ngModel"
+          ></app-phone-input>
+        </div>
+
+        <div class="user-from_btn-container col-sm-offset-3 col-sm-6 form-group">
+          <button type="submit" class="btn btn-info btn-block">Зарегестрироваться</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-sm-4" *ngIf="form.submitted">
+      {{profile | json}}
+    </div>
+  </div>
+</div>

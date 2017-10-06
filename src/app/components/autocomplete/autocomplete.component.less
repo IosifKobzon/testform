@@ -1,0 +1,30 @@
+:host {
+  .app-autocomplete {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    &.disabled {
+      cursor: not-allowed;
+    }
+    .dropdown-menu {
+      width: 100%;
+      overflow-y: auto;
+      max-height: 400px;
+      border-radius: 0 0 5px 5px;
+      border-top: 0;
+      display: block;
+      cursor: pointer;
+      > li {
+        padding: 10px 20px;
+        white-space: nowrap;
+        font-size: 0;
+        &:hover {
+          background-color: rgba(112,112,112, .1);
+        }
+        > strong, span {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

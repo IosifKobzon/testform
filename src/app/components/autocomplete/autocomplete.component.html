@@ -1,0 +1,15 @@
+<div class="app-autocomplete"
+     [ngClass]="{disabled: disabled}">
+
+  <input class="form-control"
+         type="text"
+         (keyup)="filtering()"
+         [(ngModel)]="input">
+  <ul class="dropdown-menu" *ngIf="!!input && _items.length && !selected">
+    <li *ngFor="let item of _items"
+    (click)="selectItem(item)">
+      <strong>{{item.substring(item.indexOf(input), --input.length)}}</strong>
+      <span>{{item.substring(--input.length)}}</span>
+    </li>
+  </ul>
+</div>

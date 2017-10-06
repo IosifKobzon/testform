@@ -1,0 +1,18 @@
+<div class="phone-input">
+  <div class="phone-input_countries" (click)="toggleBar()">
+    <img class="flag" [src]="currentCountry.url">
+
+    <ul class="phone-input_countries_list" *ngIf="barIsOpened">
+      <li *ngFor="let country of countries; let i = index" (click)="selectCountry(i, $event)">
+        <img class="flag" [src]="country.url">
+      </li>
+    </ul>
+  </div>
+  <div class="phone-input_code">+{{currentCountry.code}}</div>
+  <input class="form-control"
+         type="number"
+         name="phone"
+         [ngModel]="phone"
+         (ngModelChange)="onChange($event)"
+         placeholder="495 123-45-67">
+</div>
